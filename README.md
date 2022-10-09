@@ -1,5 +1,2 @@
-# HackerStarter!
-
-[image](https://user-images.githubusercontent.com/75226562/194780268-fb4b47ed-de73-4949-8045-40815c2c310f.png)
-
+![image](https://user-images.githubusercontent.com/75226562/194780287-0efc9154-0bdc-492a-b1fe-86e31ae18d38.png)
 
