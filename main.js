@@ -1,6 +1,5 @@
 let todolist = document.getElementsByTagName('ul')[0];
 let inputEle = document.getElementById('content');
-let button = document.getElementsByTagName('button')[0];
 let login = false;
 
 

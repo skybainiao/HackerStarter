@@ -4,5 +4,6 @@ body{
 
 .col-md-8{
   background: rgb(0, 0, 0);
+  margin-top: -20px;
 }
 
