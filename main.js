@@ -35,11 +35,10 @@ inputEle.addEventListener('keyup',(evevt) =>{
           for (let i = 0; i < data.length; i++) {
             addNew(JSON.stringify(data[i]));
           }
-
         },
         error(err){
           console.log(err);
-          addNew("Requested failed");
+          addNew(err);
         }
       })
     }
@@ -47,6 +46,11 @@ inputEle.addEventListener('keyup',(evevt) =>{
       addNew(inputEle.value);
       inputEle.value='';
     }
+
+
+
+
+
 
   }
 })
