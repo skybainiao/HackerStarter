@@ -24,15 +24,22 @@ inputEle.addEventListener('keyup',(evevt) =>{
       inputEle.value='';
     }
     else if (inputEle.value==='get') {
+      addNew(inputEle.value);
+      inputEle.value='';
       $.ajax({
-        url:'http://myblog-env.eba-scwpwmpk.eu-central-1.elasticbeanstalk.com/users',
+        url:'http://localhost:8080/users',
         type:'get',
         dataType:'json',
         success(data){
           console.log(data);
+          for (let i = 0; i < data.length; i++) {
+            addNew(JSON.stringify(data[i]));
+          }
+
         },
         error(err){
           console.log(err);
+          addNew("Requested failed");
         }
       })
     }
