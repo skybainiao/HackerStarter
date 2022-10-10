@@ -3,9 +3,16 @@ let inputEle = document.getElementById('content');
 let login = false;
 
 
-function addNew(content){
+function cmd(content){
+  let item = document.createElement('li');
+  item.innerHTML = "Execute : "+content;
+  todolist.appendChild(item);
+}
+
+function comment(content){
   let item = document.createElement('li');
   item.innerHTML = content;
+  item.style.color="white";
   todolist.appendChild(item);
 }
 
@@ -15,16 +22,17 @@ inputEle.addEventListener('keyup',(evevt) =>{
   if(evevt.key === 'Enter'){
     if (inputEle.value==='login') {
       login = true;
-      addNew(inputEle.value+"......");
-      addNew("Login Success!");
+      cmd(inputEle.value+"......");
+      comment("Login Success!");
       inputEle.value='';
     }
     else if (inputEle.value==='Wanzi Ma' && login === true) {
-      addNew(inputEle.value+'是傻逼');
+      cmd('Wanzi Ma');
+      comment(inputEle.value+'是傻逼');
       inputEle.value='';
     }
     else if (inputEle.value==='get') {
-      addNew(inputEle.value);
+      cmd(inputEle.value);
       inputEle.value='';
       $.ajax({
         url:'http://myblog-env.eba-scwpwmpk.eu-central-1.elasticbeanstalk.com/users',
@@ -33,17 +41,17 @@ inputEle.addEventListener('keyup',(evevt) =>{
         success(data){
           console.log(data);
           for (let i = 0; i < data.length; i++) {
-            addNew(JSON.stringify(data[i]));
+            comment(JSON.stringify(data[i]));
           }
         },
         error(err){
           console.log(err);
-          addNew(err);
+          comment(err);
         }
       })
     }
     else{
-      addNew(inputEle.value);
+      cmd(inputEle.value);
       inputEle.value='';
     }
 
