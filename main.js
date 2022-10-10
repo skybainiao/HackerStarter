@@ -23,6 +23,19 @@ inputEle.addEventListener('keyup',(evevt) =>{
       addNew(inputEle.value+'是傻逼');
       inputEle.value='';
     }
+    else if (inputEle.value==='get') {
+      $.ajax({
+        url:'http://myblog-env.eba-scwpwmpk.eu-central-1.elasticbeanstalk.com/users',
+        type:'get',
+        dataType:'json',
+        success(data){
+          console.log(data);
+        },
+        error(err){
+          console.log(err);
+        }
+      })
+    }
     else{
       addNew(inputEle.value);
       inputEle.value='';
