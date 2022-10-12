@@ -35,7 +35,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       cmd(inputEle.value);
       inputEle.value='';
       $.ajax({
-        url:'https://myblog-env.eba-scwpwmpk.eu-central-1.elasticbeanstalk.com/users',
+        url:'https://www.hackerstarters.com/hello',
         type:'get',
         dataType:'json',
         success(data){
