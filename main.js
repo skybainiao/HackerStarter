@@ -35,7 +35,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       cmd(inputEle.value);
       inputEle.value='';
       $.ajax({
-        url:'https://www.hackerstarters.com/hello',
+        url:'https://www.hackerstarters.com/users',
         type:'get',
         dataType:'json',
         success(data){
