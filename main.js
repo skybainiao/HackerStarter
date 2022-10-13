@@ -66,7 +66,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
          }
          $.ajax({
            type:'post',
-           url:'http://hacker/add',
+           url:'https://www.hackerstarters.com/add',
            data:JSON.stringify(user), 
            dataType:"text",
            contentType:"application/json", 
@@ -97,7 +97,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       cmd();
   
       $.ajax({
-        url:'http://localhost:8080/users',
+        url:'https://www.hackerstarters.com/users',
         type:'get',
         dataType:'json',
         success(data){
@@ -121,7 +121,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
        }
        $.ajax({
          type:'post',
-         url:'http://localhost:8080/add',
+         url:'https://www.hackerstarters.com/add',
          data:JSON.stringify(user), 
          dataType:"text",
          contentType:"application/json", 
