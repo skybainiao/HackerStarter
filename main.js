@@ -93,7 +93,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
   
     }
 
-    else if (inputEle.value==='get') {
+    else if (inputEle.value==='/get') {
       cmd();
   
       $.ajax({
@@ -113,7 +113,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       })
     }
 
-    else if (inputEle.value==='post') {
+    else if (inputEle.value==='/post') {
       cmd();
       var user = {
         "username":"chen",
