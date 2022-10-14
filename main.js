@@ -2,6 +2,7 @@ let todoList = document.getElementsByTagName('ul')[0];
 let inputEle = document.getElementById('content');
 let login = false;
 let isRegister = false;
+let isName = false;
 let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
 
 window.onload = function(){
@@ -52,8 +53,9 @@ inputEle.addEventListener('keyup',(evevt) =>{
     else if (inputEle.value==='/Wanzi Ma') {
       cmd();
       comment(inputEle.value+'是傻逼');
-  
     }
+
+    
 
     else if (inputEle.value==='/ikunTest') {
       cmd();
@@ -62,10 +64,11 @@ inputEle.addEventListener('keyup',(evevt) =>{
 
     else if (inputEle.value==='/help') {
       cmd();
-      comment("/register");
-      comment("/APOD");
-      comment("/dailyTips");
-      comment("/ikunTest");
+      comment("/register (NOT DONE)");
+      comment("/APOD (Astronomy Picture of the Day)");
+      comment("/dailyTips (Feel boring?)");
+      comment("/ikunTest (Ikun knows)");
+      comment("/Agify (Guess your age)");
   
     }
 
@@ -124,7 +127,31 @@ inputEle.addEventListener('keyup',(evevt) =>{
       isRegister = false;
     }
 
-    
+
+    else if (inputEle.value==='/Agify') {
+      cmd();
+      comment("Enter your name")
+      isName=true;
+
+    }
+
+    else if (isName===true){
+      $.ajax({
+        url:'https://api.agify.io/?name='+inputEle.value,
+        type:'get',
+        dataType:'json',
+        success(data){
+          clearInput();
+          console.log(data);       
+          comment("Your age is "+data.age);
+        
+        },
+        error(err){
+          console.log(err);
+          comment(err);
+        }
+      })
+    }
 
     else if (inputEle.value==='/APOD') {
       cmd();
