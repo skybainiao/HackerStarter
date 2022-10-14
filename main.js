@@ -57,7 +57,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
 
     else if (inputEle.value==='/ikunTest') {
       cmd();
-      web("https://ikuntest.com","",580);
+      web("https://ikuntest.com","",650);
     }
 
     else if (inputEle.value==='/help') {
