@@ -2,6 +2,7 @@ let todoList = document.getElementsByTagName('ul')[0];
 let inputEle = document.getElementById('content');
 let login = false;
 let isRegister = false;
+let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
 
 window.onload = function(){
   comment("Enter /help get commands");
@@ -18,6 +19,12 @@ function comment(content){
   let item = document.createElement('li');
   item.innerHTML = content;
   item.style.color="white";
+  todoList.appendChild(item);
+}
+
+function img(url) {
+  let item = document.createElement('img');
+  item.src=url;
   todoList.appendChild(item);
 }
 
@@ -90,9 +97,29 @@ inputEle.addEventListener('keyup',(evevt) =>{
       isRegister = false;
     }
 
-    else if (inputEle.value==='/Wanzi Ma' && login === true) {
+    else if (inputEle.value==='/Wanzi Ma') {
       cmd();
       comment(inputEle.value+'是傻逼');
+  
+    }
+
+    else if (inputEle.value==='/APOD') {
+      cmd();
+      $.ajax({
+        url:'https://api.nasa.gov/planetary/apod?api_key=EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1',
+        type:'get',
+        dataType:'json',
+        success(data){
+          console.log(data);       
+          comment(data.date);
+          comment(data.explanation);
+          img(data.hdurl);      
+        },
+        error(err){
+          console.log(err);
+          comment(err);
+        }
+      })
   
     }
 
