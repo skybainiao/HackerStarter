@@ -3,6 +3,9 @@ let inputEle = document.getElementById('content');
 let login = false;
 let isRegister = false;
 
+window.onload = function(){
+  comment("Enter /help get commands");
+}
 
 function cmd(){
   let item = document.createElement('li');
@@ -90,6 +93,26 @@ inputEle.addEventListener('keyup',(evevt) =>{
     else if (inputEle.value==='/Wanzi Ma' && login === true) {
       cmd();
       comment(inputEle.value+'是傻逼');
+  
+    }
+
+    else if (inputEle.value==='/dailyTips') {
+      cmd();
+      
+      $.ajax({
+        url:'https://www.boredapi.com/api/activity?participants=1',
+        type:'get',
+        dataType:'json',
+        success(data){
+          console.log(data);       
+          comment(JSON.stringify(data.activity));
+          
+        },
+        error(err){
+          console.log(err);
+          comment(err);
+        }
+      })
   
     }
 
