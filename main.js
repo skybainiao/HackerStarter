@@ -28,6 +28,13 @@ function img(url) {
   todoList.appendChild(item);
 }
 
+function web(url) {
+  let item = document.createElement('iframe');
+  item.src=url;
+  item.height="700px";
+  todoList.appendChild(item);
+}
+
 function clearInput() {
   inputEle.value='';
 }
@@ -42,11 +49,23 @@ inputEle.addEventListener('keyup',(evevt) =>{
     
     }
 
+    else if (inputEle.value==='/Wanzi Ma') {
+      cmd();
+      comment(inputEle.value+'是傻逼');
+  
+    }
+
+    else if (inputEle.value==='/ikunTest') {
+      cmd();
+      web("https://ikuntest.com");
+    }
+
     else if (inputEle.value==='/help') {
       cmd();
       comment("/register");
       comment("/APOD");
       comment("/dailyTips");
+      comment("/ikunTest");
   
     }
 
@@ -105,11 +124,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       isRegister = false;
     }
 
-    else if (inputEle.value==='/Wanzi Ma') {
-      cmd();
-      comment(inputEle.value+'是傻逼');
-  
-    }
+    
 
     else if (inputEle.value==='/APOD') {
       cmd();
