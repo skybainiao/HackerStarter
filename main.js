@@ -136,14 +136,16 @@ inputEle.addEventListener('keyup',(evevt) =>{
     }
 
     else if (isName===true){
+      isName=false;
+
       $.ajax({
         url:'https://api.agify.io/?name='+inputEle.value,
         type:'get',
         dataType:'json',
         success(data){
-          clearInput();
           console.log(data);       
-          comment("Your age is "+data.age);
+          comment(inputEle.value+", Your age is "+data.age);
+          clearInput();
         
         },
         error(err){
