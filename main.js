@@ -28,10 +28,10 @@ function img(url) {
   todoList.appendChild(item);
 }
 
-function web(url) {
+function web(url,width,height) {
   let item = document.createElement('iframe');
   item.src=url;
-  item.height="700px";
+  item.height=height+"px";
   todoList.appendChild(item);
 }
 
@@ -57,7 +57,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
 
     else if (inputEle.value==='/ikunTest') {
       cmd();
-      web("https://ikuntest.com");
+      web("https://ikuntest.com","",580);
     }
 
     else if (inputEle.value==='/help') {
