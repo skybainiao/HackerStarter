@@ -42,6 +42,14 @@ inputEle.addEventListener('keyup',(evevt) =>{
     
     }
 
+    else if (inputEle.value==='/help') {
+      cmd();
+      comment("/register");
+      comment("/APOD");
+      comment("/dailyTips");
+  
+    }
+
     else if (inputEle.value==='/register') {
       cmd();
       isRegister = true;
