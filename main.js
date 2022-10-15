@@ -12,6 +12,7 @@ window.onload = function(){
 function cmd(){
   let item = document.createElement('li');
   item.innerHTML = "Execute : "+inputEle.value;
+  item.style.marginTop='5px';
   inputEle.value='';
   todoList.appendChild(item);
 }
@@ -19,6 +20,7 @@ function cmd(){
 function comment(content){
   let item = document.createElement('li');
   item.innerHTML = content;
+  item.style.marginTop='5px';
   item.style.color="white";
   todoList.appendChild(item);
 }
