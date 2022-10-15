@@ -4,7 +4,6 @@ let login = false;
 let isRegister = false;
 let isName = false;
 let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
-let windyKey = "54G2Y2gewXgZ4xV6EqtFn0WbUaFaLOtL";
 
 window.onload = function(){
   comment("Enter /help get commands");
@@ -43,6 +42,26 @@ function clearInput() {
   inputEle.value='';
 }
 
+var VisitorAPI=function(t,e,a){
+  var s=new XMLHttpRequest;
+  s.onreadystatechange=function(){
+    var t;
+    s.readyState===XMLHttpRequest.DONE&&(
+      200===(t=JSON.parse(s.responseText)).status?e(t.data):a(t.status,t.result))},s.open("GET","https://api.visitorapi.com/api/?pid="+t),s.send(null)};
+
+VisitorAPI(
+    "j7teEz5m0cPNzZUgA29B",
+    function(data){
+      console.log(data)
+      comment("Your IP: "+data.ipAddress);
+      comment("Your Address: "+data.city+","+data.countryName);
+      comment("Enter /ip get more info");
+    },
+    function(errorCode, errorMessage){
+      console.log(errorCode, errorMessage)
+    }
+);
+      
 inputEle.addEventListener('keyup',(evevt) =>{
   if(evevt.key === 'Enter'){
 
@@ -58,6 +77,20 @@ inputEle.addEventListener('keyup',(evevt) =>{
       comment(inputEle.value+'是傻逼');
     }
 
+    else if (inputEle.value==='/ip') {
+      cmd();
+      VisitorAPI(
+        "j7teEz5m0cPNzZUgA29B",
+        function(data){
+          console.log(data);
+          comment(JSON.stringify(data));
+        },
+        function(errorCode, errorMessage){
+          console.log(errorCode, errorMessage)
+        }
+    );
+    
+    }
     
 
     else if (inputEle.value==='/ikunTest') {
@@ -67,11 +100,12 @@ inputEle.addEventListener('keyup',(evevt) =>{
 
     else if (inputEle.value==='/help') {
       cmd();
-      comment("/register (NOT DONE)");
-      comment("/APOD (Astronomy Picture of the Day)");
+      comment("/register");
+      comment("/APOD (NASA:Astronomy Picture of the Day)");
       comment("/dailyTips (Feel boring?)");
       comment("/ikunTest (Ikun knows)");
       comment("/Agify (Guess your age)");
+      comment("/ip(Get your ipInfo)");
   
     }
 
