@@ -5,6 +5,8 @@ let isRegister = false;
 let isName = false;
 let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
 
+
+
 window.onload = function(){
   comment("Enter /help get commands");
 }
@@ -42,28 +44,14 @@ function clearInput() {
   inputEle.value='';
 }
 
-var VisitorAPI=function(t,e,a){
-  var s=new XMLHttpRequest;
-  s.onreadystatechange=function(){
-    var t;
-    s.readyState===XMLHttpRequest.DONE
-    &&(200===(t=JSON.parse(s.responseText)).status?e(t.data):a(t.status,t.result))},
-    s.open("GET","https://api.visitorapi.com/api/?pid="+t),
-    s.send(null)
-  };
 
-VisitorAPI(
-    "Yrs4O9h7LATbruGlL1Ze",
-    function(data){
-      console.log(data)
-      comment("Your IP: "+data.ipAddress);
-      comment("Your Address: "+data.city+","+data.countryName);
-      comment("Enter /ip get more info");
-    },
-    function(errorCode, errorMessage){
-      console.log(errorCode, errorMessage)
-    }
-);
+$.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9", 
+function(data) {
+    console.log(data);
+    comment("Your IP: "+data.ip_address);
+    comment("Your Address: "+data.city+","+data.country);
+    comment("Enter /ip get more info");
+})
       
 inputEle.addEventListener('keyup',(evevt) =>{
   if(evevt.key === 'Enter'){
@@ -82,16 +70,12 @@ inputEle.addEventListener('keyup',(evevt) =>{
 
     else if (inputEle.value==='/ip') {
       cmd();
-      VisitorAPI(
-        "j7teEz5m0cPNzZUgA29B",
-        function(data){
-          console.log(data);
-          comment(JSON.stringify(data));
-        },
-        function(errorCode, errorMessage){
-          console.log(errorCode, errorMessage)
-        }
-    );
+      $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9", 
+      function(data) {
+        console.log(data);
+        comment(JSON.stringify(data));
+        
+      })
     
     }
     
@@ -225,7 +209,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
         success(data){
           console.log(data);       
           comment(JSON.stringify(data.activity));
-          
+           
         },
         error(err){
           console.log(err);
