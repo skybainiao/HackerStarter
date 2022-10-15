@@ -53,7 +53,7 @@ var VisitorAPI=function(t,e,a){
   };
 
 VisitorAPI(
-    "j7teEz5m0cPNzZUgA29B",
+    "Yrs4O9h7LATbruGlL1Ze",
     function(data){
       console.log(data)
       comment("Your IP: "+data.ipAddress);
