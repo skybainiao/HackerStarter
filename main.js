@@ -27,9 +27,11 @@ function comment(content){
   todoList.appendChild(item);
 }
 
-function img(url) {
+function img(url,width,height) {
   let item = document.createElement('img');
   item.src=url;
+  item.width=width;
+  item.height=height;
   todoList.appendChild(item);
 }
 
@@ -50,6 +52,7 @@ function(data) {
     console.log(data);
     comment("Your IP: "+data.ip_address);
     comment("Your Address: "+data.city+","+data.country);
+    img(data.flag.png);
     comment("Enter /ip get more info");
 })
       
