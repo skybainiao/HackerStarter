@@ -4,6 +4,7 @@ let login = false;
 let isRegister = false;
 let isName = false;
 let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
+let windyKey = "54G2Y2gewXgZ4xV6EqtFn0WbUaFaLOtL";
 
 window.onload = function(){
   comment("Enter /help get commands");
@@ -12,7 +13,7 @@ window.onload = function(){
 function cmd(){
   let item = document.createElement('li');
   item.innerHTML = "Execute : "+inputEle.value;
-  item.style.marginTop='5px';
+  item.style.marginTop='2px';
   inputEle.value='';
   todoList.appendChild(item);
 }
