@@ -52,7 +52,6 @@ function(data) {
     console.log(data);
     comment("Your IP: "+data.ip_address);
     comment("Your Address: "+data.city+","+data.country);
-    img(data.flag.png);
     comment("Enter /ip get more info");
 })
       
