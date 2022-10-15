@@ -46,8 +46,11 @@ var VisitorAPI=function(t,e,a){
   var s=new XMLHttpRequest;
   s.onreadystatechange=function(){
     var t;
-    s.readyState===XMLHttpRequest.DONE&&(
-      200===(t=JSON.parse(s.responseText)).status?e(t.data):a(t.status,t.result))},s.open("GET","https://api.visitorapi.com/api/?pid="+t),s.send(null)};
+    s.readyState===XMLHttpRequest.DONE
+    &&(200===(t=JSON.parse(s.responseText)).status?e(t.data):a(t.status,t.result))},
+    s.open("GET","https://api.visitorapi.com/api/?pid="+t),
+    s.send(null)
+  };
 
 VisitorAPI(
     "j7teEz5m0cPNzZUgA29B",
