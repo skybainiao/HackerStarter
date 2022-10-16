@@ -1,10 +1,16 @@
 let todoList = document.getElementsByTagName('ul')[0];
 let inputEle = document.getElementById('content');
+let fileInput = document.getElementById('fileInput');
+let submit = document.getElementById('submit-1');
 let login = false;
 let isRegister = false;
 let isName = false;
 let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
 let docToPDFKey = "538a700e-f896-4246-b324-232a9e19d26f";
+//<form id="fromCont" action="" method="post">
+  //<input type="file" id="fileInput" name="content">
+    //<input type="submit" id="submit-1" value="submit">
+//</form>
 
 
 
@@ -12,26 +18,8 @@ window.onload = function(){
   comment("Enter /help get commands");
 }
 
-var defaultClient = cloudmersiveValidateApiClient.ApiClient.instance;
-
-// Configure API key authorization: Apikey
-var Apikey = defaultClient.authentications['Apikey'];
-Apikey.apiKey = "YOUR_API_KEY_HERE"
-
-var api = new cloudmersiveValidateApiClient.DomainApi()
-
-var domain = "cloudmersive.com"; // {String} Domain name to check, for example \"cloudmersive.com\".  The input is a string so be sure to enclose it in double-quotes.
 
 
-var callback = function (error, data, response) {
-    if (error) {
-        console.error(error);
-    } else {
-        console.log('API called successfully. Returned data: ' + data);
-    }
-};
-
-api.domainCheck(domain, callback);
 
 function cmd(){
   let item = document.createElement('li');
@@ -69,14 +57,17 @@ function clearInput() {
 }
 
 
-$.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9", 
+$.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9",
 function(data) {
     console.log(data);
     comment("Your IP: "+data.ip_address);
     comment("Your Address: "+data.city+","+data.country);
     comment("Enter /ip get more info");
 })
-      
+
+
+
+
 inputEle.addEventListener('keyup',(evevt) =>{
   if(evevt.key === 'Enter'){
 
@@ -84,7 +75,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       login = true;
       cmd();
       comment("Login Success!");
-    
+
     }
 
     else if (inputEle.value==='/Wanzi Ma') {
@@ -92,17 +83,41 @@ inputEle.addEventListener('keyup',(evevt) =>{
       comment(inputEle.value+'是傻逼');
     }
 
+    else if (inputEle.value==='/run') {
+      cmd();
+      let form = new FormData();
+      form.append("inputFile", fileInput.files[0], "file");
+      let settings = {
+        "url": "https://api.cloudmersive.com/convert/autodetect/to/pdf",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+          "Content-Type": "multipart/form-data",
+          "Apikey": docToPDFKey
+        },
+        "processData": false,
+        "mimeType": "multipart/form-data",
+        "contentType": false,
+        "data": form
+      };
+
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+
+      });
+    }
+
     else if (inputEle.value==='/ip') {
       cmd();
-      $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9", 
+      $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9",
       function(data) {
         console.log(data);
         comment(JSON.stringify(data));
-        
+
       })
-    
+
     }
-    
+
 
     else if (inputEle.value==='/ikunTest') {
       cmd();
@@ -117,7 +132,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       comment("/ikunTest (Ikun knows)");
       comment("/Agify (Guess your age)");
       comment("/ip(Get your ipInfo)");
-  
+
     }
 
     else if (inputEle.value==='/register') {
@@ -155,9 +170,9 @@ inputEle.addEventListener('keyup',(evevt) =>{
          $.ajax({
            type:'post',
            url:'https://www.hackerstarters.com/add',
-           data:JSON.stringify(user), 
+           data:JSON.stringify(user),
            dataType:"text",
-           contentType:"application/json", 
+           contentType:"application/json",
            success(data){
              comment("Success")
              clearInput();
@@ -191,10 +206,10 @@ inputEle.addEventListener('keyup',(evevt) =>{
         type:'get',
         dataType:'json',
         success(data){
-          console.log(data);       
+          console.log(data);
           comment(inputEle.value+", Your age is "+data.age);
           clearInput();
-        
+
         },
         error(err){
           console.log(err);
@@ -210,42 +225,41 @@ inputEle.addEventListener('keyup',(evevt) =>{
         type:'get',
         dataType:'json',
         success(data){
-          console.log(data);       
+          console.log(data);
           comment(data.date);
           comment(data.explanation);
-          img(data.hdurl);      
         },
         error(err){
           console.log(err);
           comment(err);
         }
       })
-  
+
     }
 
     else if (inputEle.value==='/dailyTips') {
       cmd();
-      
+
       $.ajax({
         url:'https://www.boredapi.com/api/activity?participants=1',
         type:'get',
         dataType:'json',
         success(data){
-          console.log(data);       
+          console.log(data);
           comment(JSON.stringify(data.activity));
-           
+
         },
         error(err){
           console.log(err);
           comment(err);
         }
       })
-  
+
     }
 
     else if (inputEle.value==='/get') {
       cmd();
-  
+
       $.ajax({
         url:'https://www.hackerstarters.com/users',
         type:'get',
@@ -272,9 +286,9 @@ inputEle.addEventListener('keyup',(evevt) =>{
        $.ajax({
          type:'post',
          url:'https://www.hackerstarters.com/add',
-         data:JSON.stringify(user), 
+         data:JSON.stringify(user),
          dataType:"text",
-         contentType:"application/json", 
+         contentType:"application/json",
          success(data){
            comment("Success")
          },
@@ -283,14 +297,14 @@ inputEle.addEventListener('keyup',(evevt) =>{
           comment(err);
         }
        });
-  
+
     }
 
-    
+
 
     else{
       cmd();
-    
+
 
     }
 

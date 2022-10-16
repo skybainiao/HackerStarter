@@ -9,5 +9,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery-3.6.1" level="application" />
+    <orderEntry type="library" name="cloudmersive-validate-client" level="application" />
   </component>
 </module>
