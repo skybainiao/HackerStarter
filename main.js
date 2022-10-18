@@ -2,6 +2,8 @@ let todoList = document.getElementsByTagName('ul')[0];
 let inputEle = document.getElementById('content');
 let fileInput = document.getElementById('fileInput');
 let submit = document.getElementById('submit-1');
+let p2 = document.getElementById('p2');
+let p3 = document.getElementById('p3');
 let login = false;
 let isRegister = false;
 let isName = false;
@@ -60,9 +62,9 @@ function clearInput() {
 $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9",
 function(data) {
     console.log(data);
-    comment("IP: "+data.ip_address);
-    comment("CY: "+data.country);
-    comment("Enter /ip get more info");
+    p2.innerHTML="IP: "+data.ip_address;
+    p3.innerHTML="CY: "+data.country
+    
 })
 
 
