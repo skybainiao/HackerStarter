@@ -72,8 +72,8 @@ function clearInput() {
 $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9", 
 function(data) {
     console.log(data);
-    comment("Your IP: "+data.ip_address);
-    comment("Your Address: "+data.city+","+data.country);
+    comment("IP: "+data.ip_address);
+    comment("CY: "+data.country);
     comment("Enter /ip get more info");
 })
       
