@@ -4,7 +4,9 @@ let fileInput = document.getElementById('fileInput');
 let submit = document.getElementById('submit-1');
 let p2 = document.getElementById('p2');
 let p3 = document.getElementById('p3');
+let users = [];
 let login = false;
+let isLogin = false;
 let isRegister = false;
 let isName = false;
 let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
@@ -18,8 +20,22 @@ let docToPDFKey = "538a700e-f896-4246-b324-232a9e19d26f";
 
 window.onload = function(){
   comment("Enter /help get commands");
+  $.ajax({
+    url:'https://www.hackerstarters.com/users',
+    type:'get',
+    dataType:'json',
+    success(data){
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        users.push(data[i])
+      }
+    },
+    error(err){
+      console.log(err);
+      comment(err);
+    }
+  })
 }
-
 
 
 
@@ -74,15 +90,53 @@ inputEle.addEventListener('keyup',(evevt) =>{
   if(evevt.key === 'Enter'){
 
     if (inputEle.value==='/login') {
-      login = true;
+      isLogin = true;
       cmd();
-      comment("Login Success!");
-
+      comment("Enter username and password in this format(username!password)");
+      
     }
 
     else if (inputEle.value==='/Wanzi Ma') {
       cmd();
       comment(inputEle.value+'是傻逼');
+    }
+
+    else if (isLogin===true) {
+      if (login===false) {
+      var str = inputEle.value;
+      try{
+        var username = str.match(/(\S*)!/)[1]; 
+        var password = str.match(/!(\S*)/)[1];
+        console.log(username);
+        console.log(password);
+      }
+      catch{
+        comment("Invalid Format!")
+      }
+  
+      for (let i = 0; i < users.length; i++) {  
+        if (users[i].username===username && users[i].password===password) {
+          login=true;
+          isLogin=false;
+          comment("Login Success!")
+          clearInput();
+          break;
+        }
+        else {
+          login=false;
+          isLogin=false;
+          comment("Login Failed!")
+          clearInput();
+          break;
+        }
+      }
+      
+    }
+    else{
+      comment("You are already logged in!")
+      clearInput();
+    }
+      
     }
 
     else if (inputEle.value==='/run') {
