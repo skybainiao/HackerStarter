@@ -55,11 +55,9 @@ function comment(content){
   todoList.appendChild(item);
 }
 
-function img(url,width,height) {
+function img(url) {
   let item = document.createElement('img');
   item.src=url;
-  item.width=width;
-  item.height=height;
   todoList.appendChild(item);
 }
 
@@ -284,6 +282,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
           console.log(data);
           comment(data.date);
           comment(data.explanation);
+          img(data.url);
         },
         error(err){
           console.log(err);
