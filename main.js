@@ -92,7 +92,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
     if (inputEle.value==='/login') {
       isLogin = true;
       cmd();
-      comment("Enter username and password in this format(username!password)");
+      comment("Enter username and password in this format (username!password)");
       
     }
 
@@ -194,7 +194,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
     else if (inputEle.value==='/register') {
       cmd();
       isRegister = true;
-      comment("Enter username and password in this format(username!password!passwordAgain)");
+      comment("Enter username and password in this format (username!password!passwordAgain)");
     }
 
     else if (inputEle.value==='/test') {
