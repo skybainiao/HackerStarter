@@ -98,6 +98,23 @@ inputEle.addEventListener('keyup',(evevt) =>{
       cmd();
       comment(inputEle.value+'是傻逼');
     }
+    else if (inputEle.value==='/sushan') {
+      cmd();
+      comment('苏珊快餐店开业啦！');
+      comment('招牌蔡：鸡泥太美');
+      comment('甜点：荔枝，小黑籽，绿湿含金糕，葡心腩');
+      comment('蔡单：蒸虾头，蒸乌鱼，香精煎鱼，香菜凤仁鸡，卤雏鸡脚，耗丸，人参公鸡，鲍晶，泥焖食不食仁，稻签烩卜烩，蒸梅角羊，泥枣丸烩金坚鱼');
+      comment('主食：油饼，蒸玫油夹饺，馍蒸，香翅捞饭');
+      comment('饮品:');
+      comment('鸽鸽拿姜');
+      comment('在嘿紫沙');
+      comment('珍梅苏汁');
+      comment('香金晶茶菊');
+      comment('榛果粉');
+      comment('纯露仁');
+      comment('现已加入《太美团》《饿死了么》外卖，欢迎下单，别逼我发货！');
+      
+    }
 
     else if (isLogin===true) {
       if (login===false) {
