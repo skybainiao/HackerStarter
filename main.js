@@ -118,7 +118,6 @@ inputEle.addEventListener('keyup',(evevt) =>{
           isLogin=false;
           comment("Login Success!")
           clearInput();
-          break;
         }
         else {
           login=false;
