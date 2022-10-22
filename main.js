@@ -118,14 +118,16 @@ inputEle.addEventListener('keyup',(evevt) =>{
           isLogin=false;
           comment("Login Success!")
           clearInput();
-        }
-        else {
-          login=false;
-          isLogin=false;
-          comment("Login Failed!")
-          clearInput();
           break;
         }
+        //else{
+          //login=false;
+          //isLogin=false;
+          //comment("Login Failed!");
+          //clearInput();
+          
+        //}
+        
       }
       
     }
