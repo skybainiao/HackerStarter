@@ -4,6 +4,7 @@ let fileInput = document.getElementById('fileInput');
 let submit = document.getElementById('submit-1');
 let p2 = document.getElementById('p2');
 let p3 = document.getElementById('p3');
+let i = 0;
 let users = [];
 let login = false;
 let isLogin = false;
@@ -49,11 +50,22 @@ function cmd(){
 
 function comment(content){
   let item = document.createElement('li');
-  item.innerHTML = content;
+  todoList.appendChild(item);
   item.style.marginTop='5px';
   item.style.color="white";
-  todoList.appendChild(item);
+  let a = setInterval(function(){
+    item.innerHTML = content.slice(0,i);
+    i++;
+    if(i>content.length){
+      i=0;
+      clearInterval(a);
+    }
+  },0.1);
+  
 }
+
+
+
 
 function img(url) {
   let item = document.createElement('img');
@@ -204,7 +216,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       comment("/ikunTest (Ikun knows)");
       comment("/Agify (Guess your age)");
       comment("/ip(Get your ipInfo)");
-
+      comment("/sushan");
     }
 
     else if (inputEle.value==='/register') {
