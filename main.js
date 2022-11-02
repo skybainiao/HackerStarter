@@ -6,9 +6,13 @@ let p2 = document.getElementById('p2');
 let p3 = document.getElementById('p3');
 let i = 0;
 let users = [];
+let messages = [];
+let date = new Date();
+let username1 = "UndefinedUser";
 let login = false;
 let isLogin = false;
 let isRegister = false;
+let isChatting = false;
 let isName = false;
 let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
 let docToPDFKey = "538a700e-f896-4246-b324-232a9e19d26f";
@@ -21,6 +25,11 @@ let docToPDFKey = "538a700e-f896-4246-b324-232a9e19d26f";
 
 window.onload = function(){
   comment("Enter /help get commands");
+  getUsers();
+  getMessages();
+}
+
+function getUsers() {
   $.ajax({
     url:'https://www.hackerstarters.com/users',
     type:'get',
@@ -29,6 +38,26 @@ window.onload = function(){
       console.log(data);
       for (let i = 0; i < data.length; i++) {
         users.push(data[i])
+      }
+    },
+    error(err){
+      console.log(err);
+      comment(err);
+    }
+  })
+}
+
+function getMessages() {
+  $.ajax({
+    url:'https://www.hackerstarters.com/messages',
+    type:'get',
+    dataType:'json',
+    success(data){
+      console.log(data);
+      for (let i = 0; i < data.length; i++) {
+        messages.push(data[i]);
+        comment(data[0].username+":"+data[0].content);
+        break;
       }
     },
     error(err){
@@ -61,7 +90,7 @@ function comment(content){
       clearInterval(a);
     }
   },0.1);
-  
+  clearInput();
 }
 
 
@@ -99,15 +128,51 @@ inputEle.addEventListener('keyup',(evevt) =>{
   if(evevt.key === 'Enter'){
 
     if (inputEle.value==='/login') {
-      isLogin = true;
-      cmd();
-      comment("Enter username and password in this format (username!password)");
+      if(login===false){
+        isLogin = true;
+        cmd();
+        comment("Enter username and password in this format (username!password)");
+      }
+      else{
+        comment("You are already logged in!")
+        clearInput();
+      }
+      
       
     }
 
     else if (inputEle.value==='/Wanzi Ma') {
       cmd();
       comment(inputEle.value+'是傻逼');
+    }
+    else if (inputEle.value==='/cc') {
+      cmd();
+      comment("Connecting...");
+      isChatting=true;
+      hat = setInterval(function(){
+        getMessages();
+      },2000);
+    }
+    else if (isChatting===true) {
+      var message = {
+        "username":"chen",
+        "content":inputEle.value,
+        "time":date.toLocaleString(),
+       }
+       $.ajax({
+         type:'post',
+         url:'https://www.hackerstarters.com/send',
+         data:JSON.stringify(message),
+         dataType:"text",
+         contentType:"application/json",
+         success(data){
+          comment(username1+":"+inputEle.value);
+         },
+         error(err){
+          console.log(err);
+          comment(err);
+        }
+       });
     }
     else if (inputEle.value==='/sushan') {
       cmd();
@@ -148,7 +213,8 @@ inputEle.addEventListener('keyup',(evevt) =>{
         if (users[i].username===username && users[i].password===password) {
           login=true;
           isLogin=false;
-          comment("Login Success!")
+          comment("Login Success!");
+          username1=username;
           clearInput();
           break;
         }
@@ -158,7 +224,6 @@ inputEle.addEventListener('keyup',(evevt) =>{
       }
 
       if(test===false){
-          login=false;
           isLogin=false;
           comment("Login Failed!");
           clearInput();
@@ -241,40 +306,53 @@ inputEle.addEventListener('keyup',(evevt) =>{
     }
 
     else if (isRegister===true) {
+      let test=true;
       comment("Registering...")
 
-      var str = inputEle.value;
-      var username = str.match(/(\S*)!/)[1];
-      username = username.match(/(\S*)!/)[1];
-      var password = str.match(/!(\S*)!/)[1];
-      var passwordAgain = str.match(/!(\S*)/)[1];
-      passwordAgain = passwordAgain.match(/!(\S*)/)[1];
-
-
-      if (password=passwordAgain) {
-        var user = {
-          "username":username,
-          "password":password
-         }
-         $.ajax({
-           type:'post',
-           url:'https://www.hackerstarters.com/add',
-           data:JSON.stringify(user),
-           dataType:"text",
-           contentType:"application/json",
-           success(data){
-             comment("Success")
-             clearInput();
-           },
-           error(err){
-            console.log(err);
-            comment(err);
-          }
-         });
+      try{
+        var str = inputEle.value;
+        var username = str.match(/(\S*)!/)[1];
+        username = username.match(/(\S*)!/)[1];
+        var password = str.match(/!(\S*)!/)[1];
+        var passwordAgain = str.match(/!(\S*)/)[1];
+        passwordAgain = passwordAgain.match(/!(\S*)/)[1];
       }
-      else{
-        comment("invalidPassword")
+      catch{
+        comment("Invlid Format");
+        comment("Register Failed");
+        clearInput();
+        isRegister = false;
+        test=false;
       }
+      
+      if(test===true){
+        if (password===passwordAgain) {
+          var user = {
+            "username":username,
+            "password":password
+           }
+           $.ajax({
+             type:'post',
+             url:'https://www.hackerstarters.com/add',
+             data:JSON.stringify(user),
+             dataType:"text",
+             contentType:"application/json",
+             success(data){
+               comment("Success")
+               clearInput();
+             },
+             error(err){
+              console.log(err);
+              comment(err);
+            }
+           });
+        }
+        else{
+          comment("invalidPassword")
+          clearInput();
+        }
+      }
+      
 
       isRegister = false;
     }
