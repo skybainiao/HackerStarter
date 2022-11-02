@@ -52,7 +52,7 @@ function comment(content){
   let item = document.createElement('li');
   todoList.appendChild(item);
   item.style.marginTop='5px';
-  item.style.color="white";
+  item.style.color="rgb(0, 255, 0)";
   let a = setInterval(function(){
     item.innerHTML = content.slice(0,i);
     i++;
@@ -63,7 +63,6 @@ function comment(content){
   },0.1);
   
 }
-
 
 
 
@@ -129,6 +128,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
     }
 
     else if (isLogin===true) {
+      let test=false;
       if (login===false) {
       var str = inputEle.value;
       try{
@@ -138,10 +138,13 @@ inputEle.addEventListener('keyup',(evevt) =>{
         console.log(password);
       }
       catch{
-        comment("Invalid Format!")
+        isLogin=false;
+        comment("Invalid Format!");
+        clearInput();
       }
   
-      for (let i = 0; i < users.length; i++) {  
+      for (let i = 0; i < users.length; i++) {
+        test=true;
         if (users[i].username===username && users[i].password===password) {
           login=true;
           isLogin=false;
@@ -149,14 +152,16 @@ inputEle.addEventListener('keyup',(evevt) =>{
           clearInput();
           break;
         }
-        //else{
-          //login=false;
-          //isLogin=false;
-          //comment("Login Failed!");
-          //clearInput();
-          
-        //}
-        
+        else{
+          test=false;
+        } 
+      }
+
+      if(test===false){
+          login=false;
+          isLogin=false;
+          comment("Login Failed!");
+          clearInput();
       }
       
     }
@@ -389,8 +394,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
 
     else{
       cmd();
-
-
+      comment("Invlid Command")
     }
 
 
