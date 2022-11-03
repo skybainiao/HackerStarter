@@ -329,7 +329,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
 
     else if (inputEle.value==='/help') {
       cmd();
-      comment("/cc(chat channel)");
+      comment("/cc(chat channel)need login");
       comment("/register");
       comment("/login");
       comment("/APOD (NASA:Astronomy Picture of the Day)");
