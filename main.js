@@ -199,7 +199,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       sendMessage("System",username1+" joined the channel");
       chat = setInterval(function(){
         getMessages();
-      },500);
+      },200);
     }
     else if (isChatting===true) {
       var message = {
