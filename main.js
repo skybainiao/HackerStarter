@@ -11,6 +11,9 @@ let date = new Date();
 let username1 = "UndefinedUser";
 let login = false;
 let isLogin = false;
+let newMessage = "";
+let usernameforMessage = "";
+let time = "";
 let isRegister = false;
 let isChatting = false;
 let isName = false;
@@ -37,7 +40,7 @@ function getUsers() {
     success(data){
       console.log(data);
       for (let i = 0; i < data.length; i++) {
-        users.push(data[i])
+        users.push(data[i]);
       }
     },
     error(err){
@@ -54,10 +57,21 @@ function getMessages() {
     dataType:'json',
     success(data){
       console.log(data);
+      let a = 0;
       for (let i = 0; i < data.length; i++) {
         messages.push(data[i]);
-        comment(data[0].username+":"+data[0].content);
-        break;
+        a=i;
+      }
+
+      for (let i = 0; i < data.length; i++) {
+        if(data[a].time!==time||data[a].content!==newMessage){
+          comment(data[a].username+":"+data[a].content);
+          newMessage=data[a].content;
+          usernameforMessage=data[a].username;
+          time=data[a].time;
+          break;
+        }
+        
       }
     },
     error(err){
