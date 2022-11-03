@@ -11,6 +11,8 @@ let date = new Date();
 let username1 = "UndefinedUser";
 let login = false;
 let isLogin = false;
+let chatter = 0;
+let chat;
 let newMessage = "";
 let usernameforMessage = "";
 let time = "";
@@ -104,7 +106,6 @@ function comment(content){
       clearInterval(a);
     }
   },0.1);
-  clearInput();
 }
 
 
@@ -135,7 +136,27 @@ function(data) {
     
 })
 
-
+function sendMessage(name,content) {
+  var message = {
+    "username":name,
+    "content":content,
+    "time":date.toLocaleString(),
+   }
+  $.ajax({
+    type:'post',
+    url:'https://www.hackerstarters.com/send',
+    data:JSON.stringify(message),
+    dataType:"text",
+    contentType:"application/json",
+    success(data){
+     //comment(username1+":"+inputEle.value);
+    },
+    error(err){
+     console.log(err);
+     comment(err);
+   }
+  });
+}
 
 
 inputEle.addEventListener('keyup',(evevt) =>{
@@ -159,7 +180,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       cmd();
       comment(inputEle.value+'是傻逼');
     }
-    else if (inputEle.value==='/cc'&&isChatting===false) {
+    else if (inputEle.value==='/cc'&&isChatting===false&&login===true) {
       cmd();
       comment("Connecting...");
       isChatting=true;
@@ -174,8 +195,9 @@ inputEle.addEventListener('keyup',(evevt) =>{
           console.log(err);
           comment(err);
         }
-      })
-      hat = setInterval(function(){
+      });
+      sendMessage("System",username1+" joined the channel");
+      chat = setInterval(function(){
         getMessages();
       },500);
     }
@@ -345,6 +367,9 @@ inputEle.addEventListener('keyup',(evevt) =>{
         var password = str.match(/!(\S*)!/)[1];
         var passwordAgain = str.match(/!(\S*)/)[1];
         passwordAgain = passwordAgain.match(/!(\S*)/)[1];
+        console.log(username);
+        console.log(password);
+        console.log(passwordAgain);
       }
       catch{
         comment("Invlid Format");
