@@ -159,13 +159,25 @@ inputEle.addEventListener('keyup',(evevt) =>{
       cmd();
       comment(inputEle.value+'是傻逼');
     }
-    else if (inputEle.value==='/cc') {
+    else if (inputEle.value==='/cc'&&isChatting===false) {
       cmd();
       comment("Connecting...");
       isChatting=true;
+      $.ajax({
+        url:'https://www.hackerstarters.com/messages',
+        type:'get',
+        dataType:'json',
+        success(data){
+          comment("Success");
+        },
+        error(err){
+          console.log(err);
+          comment(err);
+        }
+      })
       hat = setInterval(function(){
         getMessages();
-      },100);
+      },500);
     }
     else if (isChatting===true) {
       var message = {
@@ -173,6 +185,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
         "content":inputEle.value,
         "time":date.toLocaleString(),
        }
+       clearInput();
        $.ajax({
          type:'post',
          url:'https://www.hackerstarters.com/send',
