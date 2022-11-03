@@ -165,7 +165,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       isChatting=true;
       hat = setInterval(function(){
         getMessages();
-      },2000);
+      },100);
     }
     else if (isChatting===true) {
       var message = {
