@@ -180,7 +180,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
          dataType:"text",
          contentType:"application/json",
          success(data){
-          comment(username1+":"+inputEle.value);
+          //comment(username1+":"+inputEle.value);
          },
          error(err){
           console.log(err);
