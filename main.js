@@ -29,7 +29,7 @@ let docToPDFKey = "538a700e-f896-4246-b324-232a9e19d26f";
 window.onload = function(){
   comment("Enter /help get commands");
   getUsers();
-  getMessages();
+  //getMessages();
 }
 
 function getUsers() {
@@ -169,7 +169,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
     }
     else if (isChatting===true) {
       var message = {
-        "username":"chen",
+        "username":username1,
         "content":inputEle.value,
         "time":date.toLocaleString(),
        }
@@ -294,7 +294,9 @@ inputEle.addEventListener('keyup',(evevt) =>{
 
     else if (inputEle.value==='/help') {
       cmd();
+      comment("/cc(chat channel)");
       comment("/register");
+      comment("/login");
       comment("/APOD (NASA:Astronomy Picture of the Day)");
       comment("/dailyTips (Feel boring?)");
       comment("/ikunTest (Ikun knows)");
