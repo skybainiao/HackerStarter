@@ -197,6 +197,8 @@ inputEle.addEventListener('keyup',(evevt) =>{
         }
       });
       sendMessage("System",username1+" joined the channel");
+      img("https://firebasestorage.googleapis.com/v0/b/cloudshare-f4727.appspot.com/o/WechatIMG392.jpeg?alt=media&token=76042889-3c90-42ed-bdbc-196f50b69025");
+      img("https://firebasestorage.googleapis.com/v0/b/cloudshare-f4727.appspot.com/o/WechatIMG393.jpeg?alt=media&token=d4a8bc52-9326-4fc7-9c17-9862078c7887");
       chat = setInterval(function(){
         getMessages();
       },500);
