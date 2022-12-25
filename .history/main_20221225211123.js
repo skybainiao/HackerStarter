@@ -234,7 +234,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
     }
 
     else if (inputEle.value==='/merryc') {
-      web('https://skybainiao.github.io/MerryChristmas/','800','800');    
+      web('https://skybainiao.github.io/MerryChristmas/','2000','1000');    
     }
     
     else if (inputEle.value==='/sushan') {

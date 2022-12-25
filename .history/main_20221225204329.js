@@ -17,7 +17,6 @@ let newMessage = "";
 let usernameforMessage = "";
 let time = "";
 let isRegister = false;
-let pic = false;
 let isChatting = false;
 let isName = false;
 let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
@@ -69,9 +68,6 @@ function getMessages() {
       for (let i = 0; i < data.length; i++) {
         if(data[a].time!==time||data[a].content!==newMessage){
           comment(data[a].username+":"+data[a].content);
-          if(content==="lz"){
-            pic=true;
-          }
           newMessage=data[a].content;
           usernameforMessage=data[a].username;
           time=data[a].time;
@@ -123,7 +119,6 @@ function img(url) {
 function web(url,width,height) {
   let item = document.createElement('iframe');
   item.src=url;
-  item.width=width+"px";
   item.height=height+"px";
   todoList.appendChild(item);
 }
@@ -202,6 +197,8 @@ inputEle.addEventListener('keyup',(evevt) =>{
         }
       });
       sendMessage("System",username1+" joined the channel");
+      img("https://firebasestorage.googleapis.com/v0/b/cloudshare-f4727.appspot.com/o/WechatIMG392.jpeg?alt=media&token=76042889-3c90-42ed-bdbc-196f50b69025");
+      img("https://firebasestorage.googleapis.com/v0/b/cloudshare-f4727.appspot.com/o/WechatIMG393.jpeg?alt=media&token=d4a8bc52-9326-4fc7-9c17-9862078c7887");
       chat = setInterval(function(){
         getMessages();
       },500);
@@ -228,15 +225,6 @@ inputEle.addEventListener('keyup',(evevt) =>{
         }
        });
     }
-    else if (inputEle.value==='/lz') {
-      img("https://firebasestorage.googleapis.com/v0/b/cloudshare-f4727.appspot.com/o/WechatIMG393.jpeg?alt=media&token=d4a8bc52-9326-4fc7-9c17-9862078c7887");
-    
-    }
-
-    else if (inputEle.value==='/merryc') {
-      web('https://skybainiao.github.io/MerryChristmas/','800','800');    
-    }
-    
     else if (inputEle.value==='/sushan') {
       cmd();
       comment('苏珊快餐店开业啦！');

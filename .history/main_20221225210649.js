@@ -123,7 +123,6 @@ function img(url) {
 function web(url,width,height) {
   let item = document.createElement('iframe');
   item.src=url;
-  item.width=width+"px";
   item.height=height+"px";
   todoList.appendChild(item);
 }
@@ -234,7 +233,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
     }
 
     else if (inputEle.value==='/merryc') {
-      web('https://skybainiao.github.io/MerryChristmas/','800','800');    
+      web('https://skybainiao.github.io/MerryChristmas/','100%','100%');    
     }
     
     else if (inputEle.value==='/sushan') {

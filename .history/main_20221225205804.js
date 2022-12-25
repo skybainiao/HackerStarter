@@ -123,7 +123,6 @@ function img(url) {
 function web(url,width,height) {
   let item = document.createElement('iframe');
   item.src=url;
-  item.width=width+"px";
   item.height=height+"px";
   todoList.appendChild(item);
 }
@@ -228,13 +227,9 @@ inputEle.addEventListener('keyup',(evevt) =>{
         }
        });
     }
-    else if (inputEle.value==='/lz') {
+    else if (isChatting===true&&inputEle.value==='/lz') {
       img("https://firebasestorage.googleapis.com/v0/b/cloudshare-f4727.appspot.com/o/WechatIMG393.jpeg?alt=media&token=d4a8bc52-9326-4fc7-9c17-9862078c7887");
-    
-    }
 
-    else if (inputEle.value==='/merryc') {
-      web('https://skybainiao.github.io/MerryChristmas/','800','800');    
     }
     
     else if (inputEle.value==='/sushan') {
