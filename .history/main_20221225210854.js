@@ -1,5 +1,3 @@
- 
-let gptKey = "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"
 let todoList = document.getElementsByTagName('ul')[0];
 let inputEle = document.getElementById('content');
 let fileInput = document.getElementById('fileInput');
@@ -69,7 +67,6 @@ function getMessages() {
       }
 
       for (let i = 0; i < data.length; i++) {
-        
         if(data[a].time!==time||data[a].content!==newMessage){
           comment(data[a].username+":"+data[a].content);
           if(content==="lz"){
@@ -126,7 +123,6 @@ function img(url) {
 function web(url,width,height) {
   let item = document.createElement('iframe');
   item.src=url;
-  item.width=width+"px";
   item.height=height+"px";
   todoList.appendChild(item);
 }
@@ -232,16 +228,31 @@ inputEle.addEventListener('keyup',(evevt) =>{
        });
     }
     else if (inputEle.value==='/lz') {
-      cmd();
       img("https://firebasestorage.googleapis.com/v0/b/cloudshare-f4727.appspot.com/o/WechatIMG393.jpeg?alt=media&token=d4a8bc52-9326-4fc7-9c17-9862078c7887");
     
     }
 
     else if (inputEle.value==='/merryc') {
-      cmd();
-      web('https://skybainiao.github.io/MerryChristmas/','800','800');    
+      web('https://skybainiao.github.io/MerryChristmas/','','1000px');    
     }
     
+    else if (inputEle.value==='/sushan') {
+      cmd();
+      comment('苏珊快餐店开业啦！');
+      comment('招牌蔡：鸡泥太美');
+      comment('甜点：荔枝，小黑籽，绿湿含金糕，葡心腩');
+      comment('蔡单：蒸虾头，蒸乌鱼，香精煎鱼，香菜凤仁鸡，卤雏鸡脚，耗丸，人参公鸡，鲍晶，泥焖食不食仁，稻签烩卜烩，蒸梅角羊，泥枣丸烩金坚鱼');
+      comment('主食：油饼，蒸玫油夹饺，馍蒸，香翅捞饭');
+      comment('饮品:');
+      comment('鸽鸽拿姜');
+      comment('在嘿紫沙');
+      comment('珍梅苏汁');
+      comment('香金晶茶菊');
+      comment('榛果粉');
+      comment('纯露仁');
+      comment('现已加入《太美团》《饿死了么》外卖，欢迎下单，别逼我发货！');
+      
+    }
 
     else if (isLogin===true) {
       let test=false;

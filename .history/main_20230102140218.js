@@ -1,5 +1,3 @@
- 
-let gptKey = "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"
 let todoList = document.getElementsByTagName('ul')[0];
 let inputEle = document.getElementById('content');
 let fileInput = document.getElementById('fileInput');
