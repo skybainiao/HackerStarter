@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDFC</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="bg-gray-800 shadow-md">
+      <nav class="container mx-auto px-6 py-3">
+          <div class="flex items-center justify-between">
+              <div>
+                  <a href="command.html" class="text-gray-300 text-2xl font-semibold">IDFC</a>
+              </div>
+              <div id="navbarMenu" class="hidden md:flex items-center space-x-4">
+                  <a href="#" class="text-gray-300 hover:text-white">Home</a>
+                  <a href="#" class="text-gray-300 hover:text-white">About Me</a>
+                  <button id="themeToggle" class="text-[var(--text-main)] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[var(--text-main)]">Dark</button>
+              </div>
+              <button id="menuButton" class="md:hidden text-gray-300">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+              </button>
+          </div>
+      </nav>
+  </header>
+
+
+    <!-- 主内容 -->
+    <main class="container mx-auto px-6 py-8">
+        <h1 class="text-4xl font-bold text-gray-300 mb-8">Welcome to IDFC Virtual Republic</h1>
+        <p class="text-gray-400 text-lg mb-8">在这里，你可以添加网页的主要内容。可以根据自己的需要修改这个模板。</p>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-400">Copyright © 2023 All rights reserved.</p>
+                </div>
+                <div>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+      /* 暗色调 */
+      body {
+          background-color: #1a202c;
+          color: #e2e8f0;
+      }
+
+      .header,
+      .footer {
+          background-color: #2d3748;
+      }
+
+      a, .header a, .footer a {
+          color: #ff0000;
+      }
+
+      a:hover, .header a:hover, .footer a:hover {
+          color: #ff0000;
+      }
+
+      /* 明亮色调 */
+      body.light-theme {
+          background-color: white;
+          color: #ffffff;
+      }
+
+      .light-theme .header,
+      .light-theme .footer {
+          background-color: #f8f9fa;
+      }
+
+      .light-theme a,
+      .light-theme .header a,
+      .light-theme .footer a {
+          color: #ffffff;
+      }
+
+      .light-theme a:hover,
+      .light-theme .header a:hover,
+      .light-theme .footer a:hover {
+          color: #ffffff;
+      }
+  </style>
+
+  <script>
+    
+      document.addEventListener('DOMContentLoaded', function() {
+
+        const menuButton = document.getElementById('menuButton');
+            const navbarMenu = document.getElementById('navbarMenu');
+
+            menuButton.addEventListener('click', function() {
+                navbarMenu.classList.toggle('hidden');
+                
+          const themeToggle = document.getElementById('themeToggle');
+          const header = document.querySelector('.header');
+          const footer = document.querySelector('.footer');
+
+          themeToggle.addEventListener('click', function() {
+              if (document.body.classList.contains('light-theme')) {
+                  document.body.classList.remove('light-theme');
+                  themeToggle.textContent = 'Dark';
+              } else {
+                  document.body.classList.add('light-theme');
+                  themeToggle.textContent = 'Light';
+              }
+          });
+      });
+  </script>
+
+    
+    
+</body>
+</html>
