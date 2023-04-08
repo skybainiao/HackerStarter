@@ -184,10 +184,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
       
     }
 
-    else if (inputEle.value==='/Wanzi Ma') {
-      cmd();
-      comment(inputEle.value+'是傻逼');
-    }
+     
     else if (inputEle.value==='/cc'&&isChatting===false&&login===true) {
       cmd();
       comment("Connecting...");
@@ -283,46 +280,12 @@ inputEle.addEventListener('keyup',(evevt) =>{
       
     }
 
-    else if (inputEle.value==='/run') {
-      cmd();
-      let form = new FormData();
-      form.append("inputFile", fileInput.files[0], "file");
-      let settings = {
-        "url": "https://api.cloudmersive.com/convert/autodetect/to/pdf",
-        "method": "POST",
-        "timeout": 0,
-        "headers": {
-          "Content-Type": "multipart/form-data",
-          "Apikey": docToPDFKey
-        },
-        "processData": false,
-        "mimeType": "multipart/form-data",
-        "contentType": false,
-        "data": form
-      };
+     
 
-      $.ajax(settings).done(function (response) {
-        console.log(response);
-
-      });
-    }
-
-    else if (inputEle.value==='/ip') {
-      cmd();
-      $.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9",
-      function(data) {
-        console.log(data);
-        comment(JSON.stringify(data));
-
-      })
-
-    }
+    
 
 
-    else if (inputEle.value==='/ikunTest') {
-      cmd();
-      web("https://ikuntest.com","",650);
-    }
+    
 
     else if (inputEle.value==='/help') {
       cmd();
@@ -330,11 +293,6 @@ inputEle.addEventListener('keyup',(evevt) =>{
       comment("/register");
       comment("/login");
       comment("/APOD (NASA:Astronomy Picture of the Day)");
-      comment("/dailyTips (Feel boring?)");
-      comment("/ikunTest (Ikun knows)");
-      comment("/Agify (Guess your age)");
-      comment("/ip(Get your ipInfo)");
-      comment("/sushan");
     }
 
     else if (inputEle.value==='/register') {
@@ -456,25 +414,7 @@ inputEle.addEventListener('keyup',(evevt) =>{
 
     }
 
-    else if (inputEle.value==='/dailyTips') {
-      cmd();
-
-      $.ajax({
-        url:'https://www.boredapi.com/api/activity?participants=1',
-        type:'get',
-        dataType:'json',
-        success(data){
-          console.log(data);
-          comment(JSON.stringify(data.activity));
-
-        },
-        error(err){
-          console.log(err);
-          comment(err);
-        }
-      })
-
-    }
+    
 
     else if (inputEle.value==='/get') {
       cmd();
