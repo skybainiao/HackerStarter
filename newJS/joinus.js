@@ -46,6 +46,26 @@ function questions(){
     
 }
 
+function generateRandomPassword(length) {
+    // 字符集
+    const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+    const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const numbers = '0123456789';
+    const symbols = '!@#$%^&*()-_=+{}[]|;:,.<>?/`~';
+
+    const allCharacters = lowerCaseLetters + upperCaseLetters + numbers + symbols;
+    const maxIndex = allCharacters.length - 1;
+    let password = '';
+
+    for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * (maxIndex + 1));
+        password += allCharacters.charAt(randomIndex);
+    }
+
+    return password;
+}
+
+
 function comment(content){
     let item = document.createElement('li');
     todoList.appendChild(item);
@@ -106,7 +126,50 @@ function clearInput() {
         email=inputEle.value;
         status1='';
         cmd();
-        comment("Welcome to IDFC Virtual Republic");
+        password=generateRandomPassword(8);
+        var user = {
+            "username":email,
+            "password":password,
+           }
+           $.ajax({
+             type:'post',
+             url:'https://www.hackerstarters.com/add',
+             data:JSON.stringify(user),
+             dataType:"text",
+             contentType:"application/json",
+             success(data){
+                comment("Welcome to IDFC Virtual Republic");
+                clearInput();
+             },
+             error(err){
+              console.log(err);
+              comment(err);
+            }
+           });
+
+           var message = {
+            "username":email,
+            "content":"register:"+fullname+","+age+","+sex+","+email,
+            "time":date.toLocaleString(),
+           }
+
+           $.ajax({
+            type:'post',
+            url:'https://www.hackerstarters.com/send',
+            data:JSON.stringify(message),
+            dataType:"text",
+            contentType:"application/json",
+            success(data){
+             comment("You will receive an email from idfc with your information");
+            },
+            error(err){
+             console.log(err);
+             comment(err);
+           }
+          });
+
+
+        
     }
     else if(status1==''){
         cmd();
@@ -115,4 +178,5 @@ function clearInput() {
     }
     
   })
+  
   
