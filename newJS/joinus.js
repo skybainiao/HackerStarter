@@ -39,11 +39,8 @@ window.onload = function(){
 }
 
 function questions(){
-    if(arr[0,1,2,3]==''){
-        status1=0;
-        comment("Enter your fullname:");
-    }
-    
+    status1=0;
+    comment("Enter your fullname:");   
 }
 
 function generateRandomPassword(length) {
@@ -127,7 +124,8 @@ function clearInput() {
         status1='';
         cmd();
         comment("Pocessing...");
-        password=generateRandomPassword(8);
+        if(fullname&&email&&age&&sex!==''){
+            password=generateRandomPassword(8);
         var user = {
             "username":email,
             "password":password,
@@ -168,6 +166,11 @@ function clearInput() {
              comment(err);
            }
           });
+        }
+        else{
+            comment("Unable to submit empty information, please try again"); 
+        }
+        
 
 
         
