@@ -1,5 +1,3 @@
- 
-let gptKey = "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"
 let todoList = document.getElementsByTagName('ul')[0];
 let inputEle = document.getElementById('content');
 let fileInput = document.getElementById('fileInput');
@@ -23,12 +21,7 @@ let isRegister = false;
 let pic = false;
 let isChatting = false;
 let isName = false;
-let key = "EVQeP83jOOGNNvajzZEeQLSXBNTO4d62qrSxQRU1";
-let docToPDFKey = "538a700e-f896-4246-b324-232a9e19d26f";
-//<form id="fromCont" action="" method="post">
-  //<input type="file" id="fileInput" name="content">
-    //<input type="submit" id="submit-1" value="submit">
-//</form>
+ 
 
 
 
