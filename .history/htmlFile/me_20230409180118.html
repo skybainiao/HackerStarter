@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDFC</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../newCSS/home.css" rel="stylesheet">
+
+  
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <div class="flex-grow">
+        <!-- 导航栏 -->
+        <header class="bg-black shadow-md">
+          <nav class="container mx-auto px-6 py-3">
+              <div class="flex items-center justify-between">
+                  <div>
+                      <a href="../index.html" class="text-gray-300 text-2xl font-semibold">IDFC</a>
+                  </div>
+                  <div id="navbarMenu" class="hidden md:flex items-center space-x-4">
+                      <a href="me.html" class="text-gray-300 hover:text-white">Contact Me</a>
+                  </div>
+                  <button id="menuButton" class="md:hidden text-gray-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                      </svg>
+                  </button>
+              </div>
+          </nav>
+      </header>
+
+         <!-- 主内容 -->
+         <main class="container mx-auto px-6 py-8 flex flex-col items-center">
+            <section class="contact-me">
+                <h1>Contact me</h1>
+                <p>If you have any questions, suggestions or would like to discuss a collaborative project with me, please contact me via:</p>
+                <br>
+                <ul>
+                    <li>Instagram：<a href="https://instagram.com/_idfc1411?igshid=YmMyMTA2M2Y=">_idfc1411</a></li>
+                    <li>Github：<a href="https://github.com/skybainiao">Junjie Chen</a></li>
+                    <li>Email：<a href="mailto:chen2468830035@gmail.com">chen2468830035@gmail.com</a></li>
+                    <li>LinkedIn：<a href="https://www.linkedin.com/in/junjie-chen-a6b0a5231/" target="_blank">linkedin.com/in/Chen</a></li>
+                    <li>Wechat：_idfc1411</li>
+                </ul>
+                <br>
+                <p>You can also send me a message directly through the form below, I will reply you as soon as possible:</p>
+                <br>
+                <form>
+                    <label for="name">Fullname：</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">Email：</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">Message：</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    
+                    
+                </form>
+                
+            </section>
+            <button id="send">send</button>
+        </main>
+    </div>
+       
+    <!-- 页脚 -->
+    <footer class="bg-black shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-400">Copyright © 2023 All rights reserved.</p>
+                </div>
+                <div>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+ 
+
+  <style>
+
+/* 自定义按钮样式 */
+#send {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* 悬停效果 */
+#send:hover {
+    background-color: #555;
+}
+
+
+
+      /* 标题样式 */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* 联系我页面样式 */
+.contact-me ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-me ul li {
+    margin-bottom: 10px;
+}
+
+.contact-me form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+
+.contact-me form label,
+.contact-me form input,
+.contact-me form textarea {
+    display: block;
+    width: 100%;
+}
+
+.contact-me form input[type="submit"] {
+    grid-column: span 2;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-me form input[type="submit"]:hover {
+    background-color: #444;
+}
+
+.contact-me form input,
+.contact-me form textarea {
+    background-color: #222;
+    color: #fff;
+    border: 2px solid #444;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.contact-me form input:focus,
+.contact-me form textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border-color: #81CBEE;
+}
+  </style>
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="../newJS/me.js"></script>
+    
+</body>
+</html>

@@ -130,14 +130,6 @@ function clearInput() {
 }
 
 
-$.getJSON("https://ipgeolocation.abstractapi.com/v1/?api_key=6b3e59b4b36d4482830f75aaa9491dd9",
-function(data) {
-    console.log(data);
-    p2.innerHTML="IP: "+data.ip_address;
-    p3.innerHTML="CY: "+data.country
-    
-})
-
 function sendMessage(name,content) {
   var message = {
     "username":name,

@@ -46,19 +46,21 @@
                 <br>
                 <p>You can also send me a message directly through the form below, I will reply you as soon as possible:</p>
                 <br>
-                <form action="contact-form.php" method="post">
+                <form>
                     <label for="name">Fullname：</label>
-                    <input type="text" id="name" name="name" required>
+                    <input id="name" >
                     
                     <label for="email">Email：</label>
-                    <input type="email" id="email" name="email" required>
+                    <input id="email"  >
                     
                     <label for="message">Message：</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <textarea id="message" rows="3" ></textarea>
                     
-                    <input id="send" type="submit" value="Send">
+                    <button id="sender" >send</button>
                 </form>
+                
             </section>
+            
         </main>
     </div>
        
@@ -76,39 +78,36 @@
         </div>
     </footer>
 
-    <script>
-    let name=document.getElementById('name');
-    let email=document.getElementById('email');
-    let message=document.getElementById('message');
-    let send=document.getElementById('send');
-    send.onclick = () =>send();
-
-    function send(){
-        var message = {
-            "username":name.data,
-            "content":"message:"+name.data+","+email.data+","+message.data,
-            "time":date.toLocaleString(),
-           }
-
-           $.ajax({
-            type:'post',
-            url:'https://www.hackerstarters.com/send',
-            data:JSON.stringify(message),
-            dataType:"text",
-            contentType:"application/json",
-            success(data){
-             send.value='Sent';
-            },
-            error(err){
-             console.log(err);
-             comment(err);
-           }
-          });
-    }
-
-    </script>
+ 
 
   <style>
+
+
+
+
+
+/* 自定义按钮样式 */
+#sender {
+    grid-column: span 2;
+    margin-top: 4%;
+    background-color: #333;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+/* 悬停效果 */
+#sender:hover {
+    background-color: #555;
+}
+
+
+
       /* 标题样式 */
 h1 {
     font-size: 2rem;
@@ -170,7 +169,8 @@ h1 {
   </style>
 
 
-
+<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+<script src="../newJS/me.js"></script>
     
 </body>
 </html>
