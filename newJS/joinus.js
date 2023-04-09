@@ -126,6 +126,7 @@ function clearInput() {
         email=inputEle.value;
         status1='';
         cmd();
+        comment("Pocessing...");
         password=generateRandomPassword(8);
         var user = {
             "username":email,
