@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDFC</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../newCSS/home.css" rel="stylesheet">
+
+  
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <div class="flex-grow">
+        <!-- 导航栏 -->
+        <header class="bg-black shadow-md">
+          <nav class="container mx-auto px-6 py-3">
+              <div class="flex items-center justify-between">
+                  <div>
+                      <a href="../index.html" class="text-gray-300 text-2xl font-semibold">IDFC</a>
+                  </div>
+                  <div id="navbarMenu" class="hidden md:flex items-center space-x-4">
+                      <a href="me.html" class="text-gray-300 hover:text-white">About Me</a>
+                  </div>
+                  <button id="menuButton" class="md:hidden text-gray-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                      </svg>
+                  </button>
+              </div>
+          </nav>
+      </header>
+
+         <!-- 主内容 -->
+         <main class="container mx-auto px-6 py-8 flex flex-col items-center">
+            <h1 id="h1Text" class="text-4xl font-bold text-gray-300 mb-8 artistic-text">Welcome to IDFC Virtual Republic</h1>
+            <div class="image-container">
+              <img src="../img/idfc.jpeg" alt="Your image description">
+              <a href="../command.html" class="floating-text">
+                join us
+              </a>
+          </div>
+        </main>
+    </div>
+       
+    <!-- 页脚 -->
+    <footer class="bg-black shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-400">Copyright © 2023 All rights reserved.</p>
+                </div>
+                <div>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  
+
+
+    
+</body>
+</html>

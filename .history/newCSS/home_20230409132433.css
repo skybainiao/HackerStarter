@@ -1,0 +1,55 @@
+#h1Text{
+    
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.floating-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+ 
+.artistic-text {
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    font-size: 35px;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* 暗色调 */
+body {
+  background-color: #000000;
+  color: #e2e8f0;
+}
+
+.header,
+.footer {
+  background-color: #000000;
+}
+
+a, .header a, .footer a {
+  color: #ff0000;
+}
+
+a:hover, .header a:hover, .footer a:hover {
+  color: #ff0000;
+}
