@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDFC</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="../newCSS/home.css" rel="stylesheet">
+
+  
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <div class="flex-grow">
+        <!-- 导航栏 -->
+        <header class="bg-black shadow-md">
+          <nav class="container mx-auto px-6 py-3">
+              <div class="flex items-center justify-between">
+                  <div>
+                      <a href="../index.html" class="text-gray-300 text-2xl font-semibold">IDFC</a>
+                  </div>
+                  <div id="navbarMenu" class="hidden md:flex items-center space-x-4">
+                      <a href="me.html" class="text-gray-300 hover:text-white">About Me</a>
+                  </div>
+                  <button id="menuButton" class="md:hidden text-gray-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                      </svg>
+                  </button>
+              </div>
+          </nav>
+      </header>
+
+         <!-- 主内容 -->
+         <main class="container mx-auto px-6 py-8 flex flex-col items-center">
+            <section class="contact-me">
+                <h1>联系我</h1>
+                <p>如果您有任何问题、建议或想与我讨论合作项目，请通过以下方式联系我：</p>
+                <ul>
+                    <li>电子邮件：<a href="mailto:zhangsan@example.com">zhangsan@example.com</a></li>
+                    <li>LinkedIn：<a href="https://www.linkedin.com/in/zhangsan" target="_blank">linkedin.com/in/zhangsan</a></li>
+                    <li>微信：zhangsan123</li>
+                </ul>
+                <p>您也可以通过以下表单直接给我发信息，我会尽快回复您：</p>
+                <form action="contact-form.php" method="post">
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="email">电子邮件：</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="message">信息：</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    
+                    <input type="submit" value="发送">
+                </form>
+            </section>
+        </main>
+    </div>
+       
+    <!-- 页脚 -->
+    <footer class="bg-black shadow-md">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <p class="text-gray-400">Copyright © 2023 All rights reserved.</p>
+                </div>
+                <div>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  
+
+
+    
+</body>
+</html>
