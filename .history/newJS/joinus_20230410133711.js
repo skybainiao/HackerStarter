@@ -199,7 +199,7 @@ function clearInput() {
     // Draw the "IDFC" pattern
     ctx.fillStyle = "#ff0000";
     ctx.font = "bold 100px Arial";
-    ctx.fillText("IDFC", 60, 240);
+    ctx.fillText("IDFC", 60, 260);
   
     // Personal information layout
     ctx.fillStyle = "#ff0000";

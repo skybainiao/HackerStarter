@@ -199,16 +199,16 @@ function clearInput() {
     // Draw the "IDFC" pattern
     ctx.fillStyle = "#ff0000";
     ctx.font = "bold 100px Arial";
-    ctx.fillText("IDFC", 60, 240);
+    ctx.fillText("IDFC", 60, 250);
   
     // Personal information layout
     ctx.fillStyle = "#ff0000";
     ctx.font = "bold 30px Arial";
-    ctx.fillText("Name: " + name, 360, 140);
+    ctx.fillText("Name: " + name, 350, 110);
     ctx.font = "20px Arial";
-    ctx.fillText("Age: " + age, 360, 190);
-    ctx.fillText("Sex: " + sex, 360, 240);
-    ctx.fillText("Email: " + email, 360, 290);
+    ctx.fillText("Age: " + age, 350, 160);
+    ctx.fillText("Sex: " + sex, 350, 210);
+    ctx.fillText("Email: " + email, 350, 260);
   
     downloadCard(canvas, name);
   }
